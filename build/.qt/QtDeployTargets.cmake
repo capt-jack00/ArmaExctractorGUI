@@ -1,0 +1,2 @@
+set(__QT_DEPLOY_TARGET_ArmaExctractorGUI_FILE /home/tytus/Documents/_repos/ArmaExctractorGUI/build/ArmaExctractorGUI)
+set(__QT_DEPLOY_TARGET_ArmaExctractorGUI_TYPE EXECUTABLE)

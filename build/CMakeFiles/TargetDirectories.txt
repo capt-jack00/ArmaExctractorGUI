@@ -1,0 +1,9 @@
+/home/tytus/Documents/_repos/ArmaExctractorGUI/build/CMakeFiles/ArmaExctractorGUI.dir
+/home/tytus/Documents/_repos/ArmaExctractorGUI/build/CMakeFiles/edit_cache.dir
+/home/tytus/Documents/_repos/ArmaExctractorGUI/build/CMakeFiles/rebuild_cache.dir
+/home/tytus/Documents/_repos/ArmaExctractorGUI/build/CMakeFiles/list_install_components.dir
+/home/tytus/Documents/_repos/ArmaExctractorGUI/build/CMakeFiles/install.dir
+/home/tytus/Documents/_repos/ArmaExctractorGUI/build/CMakeFiles/install/local.dir
+/home/tytus/Documents/_repos/ArmaExctractorGUI/build/CMakeFiles/install/strip.dir
+/home/tytus/Documents/_repos/ArmaExctractorGUI/build/CMakeFiles/ArmaExctractorGUI_autogen_timestamp_deps.dir
+/home/tytus/Documents/_repos/ArmaExctractorGUI/build/CMakeFiles/ArmaExctractorGUI_autogen.dir

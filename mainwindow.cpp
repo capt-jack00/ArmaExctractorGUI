@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include <QFileDialog>
 #include <QProcess>
+#include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -10,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     connect(ui->mdpckbtn, &QPushButton::clicked, this, [this]() {
-        QString modpckName = QFileDialog::getOpenFileName(this, "Open File");
+        QString modpckName = QFileDialog::getOpenFileName(this, "Select modpack file", QString(), "*.html");
         if (!modpckName.isEmpty()) {
             input = modpckName;
             ui->mdpckPath->setText(modpckName);
@@ -18,17 +19,18 @@ MainWindow::MainWindow(QWidget *parent)
     });
 
     connect(ui->outbtn, &QPushButton::clicked, this, [this](){
-        QString outfileName = QFileDialog::getOpenFileName(this, "Open File");
+        QString outfileName = QFileDialog::getOpenFileName(this, "Select output file", QString(), "*.txt");
         if(!outfileName.isEmpty()){
             output = outfileName;
             ui->outPath->setText(outfileName);
         }
     });
 
-    //TODO: Rewiev the connect code below for extract button
     connect(ui->extractBtn, &QPushButton::clicked, this, [this](){
         QProcess process;
-        process.start("python3", QStringList() << "extract.py" << "--input" << input << "--output" << output);
+        QStringList args;
+        args << "extract.py" << "--input" << input << "--output" << output;
+        process.start("python3", args);
 
         if (!process.waitForFinished()) {
             qDebug() << "Process timed out or failed to start!";
@@ -46,8 +48,10 @@ MainWindow::MainWindow(QWidget *parent)
 
         if (exitCode == 0) {
             qDebug() << "Script ran successfully!";
+            QMessageBox::information(this, "Success!", "Successfully exported mod ID's!");
         } else {
             qDebug() << "Script failed!";
+            QMessageBox::critical(this, "Error!", stderrOutput);
         }
     });
 
