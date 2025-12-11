@@ -14,3 +14,7 @@ cmake --build ../build/
 ./ArmaExtractorGUI
 ```
 I'll update this README file in the future.
+
+# Important informations
+The program needs the `extract.py` script in the same directory as the program executable. I haven't built the program binary for Windows. I'm sure it will 
+appear in near future. Also the program needs the `python3` installed to work. The current way of handling the extract script is not really convinient so it needs some improvements. I'm open to all pull requests.  
