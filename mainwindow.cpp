@@ -4,6 +4,8 @@
 #include <QProcess>
 #include <QMessageBox>
 
+//TODO: Improve GUI
+//TODO: Build the project to AppImage
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -26,12 +28,11 @@ MainWindow::MainWindow(QWidget *parent)
         }
     });
 
-    //TODO: Find a better way to handle the python script. 
     connect(ui->extractBtn, &QPushButton::clicked, this, [this](){
         QProcess process;
         QStringList args;
-        args << "extract.py" << "--input" << input << "--output" << output;
-        process.start("python3", args);
+        args << "--input" << input << "--output" << output;
+        process.start("./extract", args);
 
         QString stdoutOutput = process.readAllStandardOutput();
         QString stderrOutput = process.readAllStandardError();
@@ -45,6 +46,7 @@ MainWindow::MainWindow(QWidget *parent)
             return;
         }
 
+        //FIXME: When output/input or both files aren't provided the qDebug tells that everything went well.
         qDebug() << "Exit code:" << exitCode;
         qDebug() << "STDOUT:" << stdoutOutput;
         qDebug() << "STDERR:" << stderrOutput;
